@@ -1,0 +1,30 @@
+[project]
+name = "lexgo"
+version = "0.1"
+description = "A lexicon search tool for language teachers and students. Explore word patterns in any language. "
+readme = "README.md"
+authors = [{name = "Joshua Kilpatrick"}]
+license = {text = "Apache-2.0"}
+requires-python = ">=3.8"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License"
+]
+dependencies = [
+    "click"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/joshkil/lexgo"
+Changelog = "https://github.com/joshkil/lexgo/releases"
+Issues = "https://github.com/joshkil/lexgo/issues"
+CI = "https://github.com/joshkil/lexgo/actions"
+
+[project.scripts]
+lexgo = "lexgo.cli:cli"
+
+[project.optional-dependencies]
+test = ["pytest"]
