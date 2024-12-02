@@ -1,6 +1,6 @@
 [project]
 name = "lexgo"
-version = "0.1"
+version = "0.2"
 description = "A lexicon search tool for language teachers and students. Explore word patterns in any language. "
 readme = "README.md"
 authors = [{name = "Joshua Kilpatrick"}]
