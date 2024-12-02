@@ -13,6 +13,8 @@ Install this tool using `pip`:
 ```bash
 pip install lexgo
 ```
+Python Package Index: https://pypi.org/project/lexgo/
+
 ## Usage
 
 For help, run:
