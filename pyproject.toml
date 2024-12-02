@@ -24,7 +24,7 @@ Issues = "https://github.com/joshkil/lexgo/issues"
 CI = "https://github.com/joshkil/lexgo/actions"
 
 [project.scripts]
-lexgo = "lexgo.cli:cli"
+lexgo = "lexgo.cli:lexgo"
 
 [project.optional-dependencies]
 test = ["pytest"]

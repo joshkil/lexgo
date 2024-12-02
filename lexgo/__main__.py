@@ -1,4 +1,4 @@
-from .cli import cli
+from lexgo.cli import lexgo
 
 if __name__ == "__main__":
-    cli()
+    lexgo()
