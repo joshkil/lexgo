@@ -28,11 +28,9 @@ def lexgo(word, exclude, include, xp):
     EXAMPLES: 
 
     \b
-    lexgo test - search for a word spelled 'test'
     lexgo .est - search for words that start with any letter and end 'est'
-    lexgo ..   - search for all two letter words
     lexgo ..ed - search four letter words ending 'ed'
-    lexgo *est - search all words that en
+    lexgo *est - search all words that end in 'est'
     lexgo b.. -e td -i a -xp ns 3
                - search 3 letter words starting with b, without letters 't' or 'd',
                  with letter a, and without letters 'n' or 's' in the 3rd letter.
