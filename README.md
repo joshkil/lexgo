@@ -41,3 +41,12 @@ To run the tests:
 ```bash
 python -m pytest
 ```
+## Acknowledgements
+
+The English lexicon used was taken from the [english-words](https://github.com/dwyl/english-words) repo. Thanks to the esteemed programer [@dwyl](https://github.com/dwyl) for his excelent work. 
+
+The Spanish lexicon used was taken from the [diccionario-español.txt](https://github.com/JorgeDuenasLerin/diccionario-espanol-txt) repo. Gracias al estimado programador [@JorgeDuenasLerin](https://github.com/JorgeDuenasLerin) por su trabajo excelente. 
+
+The French lexicon used was taken from the [French-Dictionary](https://github.com/hbenbel/French-Dictionary) repo. Merci au programmeur estimé [@hbenbel](https://github.com/hbenbel) pour son excellent travail.
+
+The Portuguese lexicon used was taken from the [words-pt](https://github.com/jfoclpf/words-pt) repo. Obrigado ao estimado programador [@jfoclpf](https://github.com/jfoclpf) por seu excelente trabalho.

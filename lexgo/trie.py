@@ -1,3 +1,5 @@
+MAX_ENG_WORD_LENGTH = 45
+
 # Trie Node Class
 # value    - each node has a value which is a single character
 # children - each node has a dictionary of child nodes. the key is the 
@@ -67,3 +69,45 @@ def find_words_r(word, node, fwords, path=""):
         return fwords
     else:
         return fwords
+
+# This function serializes a Trie Node into a string that can be stored. 
+# This function is untested
+def serialize(node):
+    stk = list()
+    serialized_trie = list()
+    # load the stack with all children of root node
+    stk.append(">")
+    for k, v in node.children.items():
+        stk.append(v)
+    stk.append("<")
+
+    while(len(stk)>0):
+        cur_node = stk.pop()
+        if not isinstance(cur_node, str):
+            serialized_trie.append(cur_node.value)
+            stk.append('>')
+            for k, v in cur_node.children.items():
+                stk.append(v)
+            stk.append('<')
+        else:
+            serialized_trie.append(cur_node)
+
+    return "".join(serialized_trie)
+
+# This function builds a tree from a string representing a serialized
+# tree. This function is untested. 
+def deserialize(s):
+    if not s or len(s) == 0:
+        return None
+    root = Node("",False)
+    current = root
+    stk = list()
+    for c in s:
+        if c == "<":
+            stk.append(current)
+        if c == ">":
+            stk.pop()
+        else:
+            current = Node(c,"False")
+            stk[-1].children[c] = current
+    return root
