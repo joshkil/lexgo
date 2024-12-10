@@ -1,7 +1,7 @@
 import click
 from lexgo import config
 import subprocess
-import pathlib
+from lexgo import utils
 
 # Global Constants
 ENGLISH_DICT_PATH = "eng_words_alpha.txt"
@@ -40,7 +40,26 @@ def lexgo(word, exclude, include, xp, lang):
                - search 3 letter words starting with b, without letters 't' or 'd',
                  with letter a, and without letters 'n' or 's' in the 3rd letter.
     '''
+    # verify that grep is installed
+    if not utils.is_grep_installed():
+        raise click.FileError("grep", "A GNU compatible grep application must be installed to use lexgo.")
+    
     # verify that word has only alpha '.' and '*'
+    if word and not utils.is_alpha_dot_star(word): 
+        raise click.UsageError("WORD must consist of alphabet characters, dot (.), and star (*).")
+    
+    if exclude and not utils.is_alpha(exclude):
+        raise click.UsageError("OPTION --exclude only accepts alphabetic characters.")
+
+    if include and not utils.is_alpha(include):
+        raise click.UsageError("OPTION --include only accepts alphabetic characters.")
+
+    if xp:
+        for c, p in xp:
+            if not utils.is_alpha(c): 
+                raise click.UsageError("OPTION --xp only accepts alphabetic characters for first argument.")
+            if p > config.LARGEST_WORD:
+                raise click.UsageError("OPTION --xp only accepts integers less than 50 for second argument.")
 
     # convert the simple '*' into regular expression".*"
     word = str.replace(word, "*", ".*")

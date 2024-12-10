@@ -50,3 +50,6 @@ The Spanish lexicon used was taken from the [diccionario-español.txt](https://g
 The French lexicon used was taken from the [French-Dictionary](https://github.com/hbenbel/French-Dictionary) repo. Merci au programmeur estimé [@hbenbel](https://github.com/hbenbel) pour son excellent travail.
 
 The Portuguese lexicon used was taken from the [words-pt](https://github.com/jfoclpf/words-pt) repo. Obrigado ao estimado programador [@jfoclpf](https://github.com/jfoclpf) por seu excelente trabalho.
+
+The German lexicon used was taken from the [wortliste](https://github.com/davidak/wortliste) repo. Vielen Dank an den geschätzten Programmierer [@davidak](https://github.com/davidak) für seine hervorragende Arbeit.
+

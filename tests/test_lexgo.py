@@ -8,3 +8,40 @@ def test_version():
         result = runner.invoke(lexgo, ["--version"])
         assert result.exit_code == 0
         assert result.output.startswith("lexgo, version ")
+
+def test_find_basic_word_eng():
+    runner = CliRunner()
+    with runner.isolated_filesystem():
+        result = runner.invoke(lexgo, ["test"])
+        assert result.exit_code == 0
+        assert result.output.startswith("test")
+
+def test_find_basic_word_es():
+    runner = CliRunner()
+    with runner.isolated_filesystem():
+        result = runner.invoke(lexgo, ["-l", "es", "prueba"])
+        assert result.exit_code == 0
+        assert result.output.startswith("prueba")
+
+def test_find_basic_word_fr():
+    runner = CliRunner()
+    with runner.isolated_filesystem():
+        result = runner.invoke(lexgo, ["-l", "fr", "tester"])
+        assert result.exit_code == 0
+        assert result.output.startswith("tester")
+
+def test_find_basic_word_de():
+    runner = CliRunner()
+    with runner.isolated_filesystem():
+        result = runner.invoke(lexgo, ["-l", "de", "testen"])
+        assert result.exit_code == 0
+        assert result.output.startswith("testen")
+
+''' Test falies with word "testar". I think it's an encoding issue I need to solve. 
+def test_find_basic_word_pt():
+    runner = CliRunner()
+    with runner.isolated_filesystem():
+        result = runner.invoke(lexgo, ["-l", "pt", "teste"])
+        assert result.exit_code == 0
+        assert result.output.startswith("teste")
+'''
