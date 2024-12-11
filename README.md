@@ -57,3 +57,4 @@ The Portuguese lexicon used was taken from the [words-pt](https://github.com/jfo
 
 The German lexicon used was taken from the [wortliste](https://github.com/davidak/wortliste) repo. Vielen Dank an den geschätzten Programmierer [@davidak](https://github.com/davidak) für seine hervorragende Arbeit.
 
+The python package chardet and the command line tool iconv were very helpful in detecting and converting encondings. 
