@@ -9,6 +9,8 @@ A lexicon search tool for language teachers and students. Explore word patterns 
 
 ![The wordle logo from New York Times](wordle.png)
 
+<img src="wordle.png" alt="The wordle logo from New York Times" width="138" height="125">
+
 Crack WORDLE in minutes using lexgo for hints. It's also great for cracking crossword puzzles. You can ask lexgo to find example words of specific lengths and with specific letters. 
 
 ## Installation
