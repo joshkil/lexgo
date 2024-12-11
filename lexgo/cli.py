@@ -20,7 +20,7 @@ ENGLISH_DICT_PATH = "eng_words_alpha.txt"
 @click.option("-xp", type=(str, int), multiple=True, default=[],
     help="A letter and a position in which it must not appear.",
 )
-@click.option("-l", "--lang", type=click.Choice(['de', 'en', 'es', 'fr', 'pt'], case_sensitive=False), default='en',
+@click.option("-l", "--lang", type=click.Choice(['de', 'en', 'es', 'fr', 'pt', 'it'], case_sensitive=False), default='en',
     help="The language dictionary to search.",
 )
 def lexgo(word, exclude, include, xp, lang):

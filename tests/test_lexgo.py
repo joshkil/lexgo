@@ -37,10 +37,16 @@ def test_find_basic_word_de():
         assert result.exit_code == 0
         assert result.output.startswith("testen")
 
-# Test falies with word "testar". I think it's an encoding issue I need to solve. 
 def test_find_basic_word_pt():
     runner = CliRunner()
     with runner.isolated_filesystem():
         result = runner.invoke(lexgo, ["-l", "pt", "teste"])
         assert result.exit_code == 0
         assert result.output.startswith("teste")
+
+def test_find_basic_word_it():
+    runner = CliRunner()
+    with runner.isolated_filesystem():
+        result = runner.invoke(lexgo, ["-l", "it", "testare"])
+        assert result.exit_code == 0
+        assert result.output.startswith("testare")
