@@ -39,21 +39,21 @@ sudo apt install python3-pip
 sudo apt install python3-venv
 python3 -m venv ./venv
 pip install lexgo
-'''
+```
 
 Now you are ready to use lexgo. Just type in your first command. 
 
-'''bash
+```bash
 # show all three letter words with 'a'
 lexgo -i "a" "..."
-'''
+```
 
 After installing, when you want to use lexgo again in the future. Just open the terminal and type the following to get started. 
 
-'''bash
+```bash
 wsl
 source ./venv/bin/activate
-'''
+```
 
 ## Usage
 
