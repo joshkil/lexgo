@@ -13,11 +13,15 @@ Crack WORDLE in minutes using lexgo for hints. It's also great for cracking cros
 
 ## Installation
 
+On Linux or Mac, things couldn't be simpler. Just open a terminal and follow these instructions. 
+
 Install this tool using `pip`:
 ```bash
 pip install lexgo
 ```
 Python Package Index: https://pypi.org/project/lexgo/
+
+If you aren't familiar with Python and have trouble with the install. You can read the python.org article [Using Python on Mac OSX](https://docs.python.org/3/using/mac.html). The article recommends an installer distributed by python.org. Personally, I like to use [Homebrew](https://brew.sh/) for installing applications on Mac, but [Anaconda](https://www.anaconda.com/download/) is also very popular. 
 
 ### Windows
 
