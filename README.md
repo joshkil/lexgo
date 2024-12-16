@@ -19,6 +19,38 @@ pip install lexgo
 ```
 Python Package Index: https://pypi.org/project/lexgo/
 
+### Windows
+
+You can use lexgo on Windows using the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) inside the [Windows Terminal](https://learn.microsoft.com/en-us/windows/terminal/install). 
+
+Here is a crash course: 
+
+Search "Terminal" in your programs. Once the terminal is open, type these commands and follow the instructions you see in the terminal. 
+
+```bash
+wsl —install
+sudo apt update
+sudo apt upgrade
+sudo apt install python3-pip
+sudo apt install python3-venv
+python3 -m venv ./venv
+pip install lexgo
+'''
+
+Now you are ready to use lexgo. Just type in your first command. 
+
+'''bash
+# show all three letter words with 'a'
+lexgo -i "a" "..."
+'''
+
+After installing, when you want to use lexgo again in the future. Just open the terminal and type the following to get started. 
+
+'''bash
+wsl
+source ./venv/bin/activate
+'''
+
 ## Usage
 
 For help, run:
@@ -56,5 +88,7 @@ The French lexicon used was taken from the [French-Dictionary](https://github.co
 The Portuguese lexicon used was taken from the [words-pt](https://github.com/jfoclpf/words-pt) repo. Obrigado ao estimado programador [@jfoclpf](https://github.com/jfoclpf) por seu excelente trabalho.
 
 The German lexicon used was taken from the [wortliste](https://github.com/davidak/wortliste) repo. Vielen Dank an den geschätzten Programmierer [@davidak](https://github.com/davidak) für seine hervorragende Arbeit.
+
+The Italian lexicon used was taken from the [paroleitaliane](https://github.com/napolux/paroleitaliane) repo. Grazie allo stimato programmatore [@napolux](https://github.com/napolux) per il suo eccellente lavoro. This lexicon is in ascii and doesn't include any diacritical marks on the words. I'm searching for a better option. 
 
 The python package chardet and the command line tool iconv were very helpful in detecting and converting encondings. 
