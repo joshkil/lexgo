@@ -68,7 +68,10 @@ def lexgo(word, exclude, include, xp, lang):
     command_stack = []
 
     # build initial grep command
-    output = subprocess.Popen(["grep", "-w", "^" + word, config.DICT_PATHS[lang]], 
+    # Use both ^ and $ anchors to strictly enforce word length and prevent
+    # partial matches. The -w flag was removed as it is unreliable for length
+    # enforcement across grep implementations (e.g. BSD grep on macOS).
+    output = subprocess.Popen(["grep", "^" + word + "$", config.DICT_PATHS[lang]],
                         stdout=subprocess.PIPE, text=True)
     command_stack.append(output)
 
