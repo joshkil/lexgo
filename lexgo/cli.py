@@ -81,11 +81,12 @@ def lexgo(word, exclude, include, xp, lang):
                                 stdout=subprocess.PIPE, text=True)
         command_stack.append(p)
     
-    # add inclusions
+    # add inclusions — one grep per letter so all letters must be present (AND, not OR)
     if include:
-        p = subprocess.Popen(["grep", "[{}]".format(include)], stdin=command_stack[-1].stdout, 
-                                stdout=subprocess.PIPE, text=True)
-        command_stack.append(p)
+        for letter in include:
+            p = subprocess.Popen(["grep", letter], stdin=command_stack[-1].stdout,
+                                  stdout=subprocess.PIPE, text=True)
+            command_stack.append(p)
 
     # add positional exclusions (xp)
     if xp:

@@ -90,6 +90,51 @@ def test_word_length_star_wildcard_allows_multiple_lengths():
     lengths = set(len(w) for w in words)
     assert len(lengths) > 1, "Expected words of multiple lengths when using '*' wildcard"
 
+# --- Issue #2: --include option doesn't AND multiple letters ---
+
+def test_include_single_letter():
+    """Including a single letter should return only words containing that letter."""
+    runner = CliRunner()
+    result = runner.invoke(lexgo, ["-i", "z", "....."])
+    assert result.exit_code == 0
+    words = [w for w in result.output.strip().splitlines() if w]
+    assert len(words) > 0, "Expected at least one 5-letter word containing 'z'"
+    for word in words:
+        assert "z" in word, f"Expected all words to contain 'z', got '{word}'"
+
+def test_include_multiple_letters_and():
+    """Including 'aei' should return only words containing ALL of a, e, and i (AND, not OR).
+    Regression test for Issue #2."""
+    runner = CliRunner()
+    result = runner.invoke(lexgo, ["-i", "aei", "....."])
+    assert result.exit_code == 0
+    words = [w for w in result.output.strip().splitlines() if w]
+    assert len(words) > 0, "Expected at least one 5-letter word containing a, e, and i"
+    for word in words:
+        assert "a" in word, f"Expected all words to contain 'a', got '{word}'"
+        assert "e" in word, f"Expected all words to contain 'e', got '{word}'"
+        assert "i" in word, f"Expected all words to contain 'i', got '{word}'"
+
+def test_include_multiple_letters_excludes_partial_matches():
+    """Words with only some of the included letters should not appear in results."""
+    runner = CliRunner()
+    result = runner.invoke(lexgo, ["-i", "aei", "....."])
+    assert result.exit_code == 0
+    words = [w for w in result.output.strip().splitlines() if w]
+    for word in words:
+        assert not ("a" in word and "e" not in word), f"'{word}' has 'a' but not 'e'"
+        assert not ("a" in word and "i" not in word), f"'{word}' has 'a' but not 'i'"
+
+def test_include_duplicate_letters():
+    """Duplicate letters in --include (e.g. 'aai') should work without error."""
+    runner = CliRunner()
+    result = runner.invoke(lexgo, ["-i", "aai", "....."])
+    assert result.exit_code == 0
+    words = [w for w in result.output.strip().splitlines() if w]
+    for word in words:
+        assert "a" in word and "i" in word, f"Expected all words to contain 'a' and 'i', got '{word}'"
+
+
 def test_word_length_issue3_boa_with_exclude():
     """Regression test for Issue #3: 'lexgo -e rd boa..' should return only 5-letter words.
     Previously returned shorter words like 'boas' (4) and 'boat' (4) due to -w flag unreliability."""
